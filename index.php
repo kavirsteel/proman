@@ -1,0 +1,3 @@
+<?php
+require __DIR__.'/bootstrap.php';if(!is_file(__DIR__.'/config.php')){header('Location: install.php');exit;}try{if(!currentUser(db())){header('Location: login.php');exit;}}catch(Throwable $e){http_response_code(503);page('خطای اتصال','<p>ارتباط دیتابیس برقرار نیست؛ تنظیمات هاست را بررسی کنید.</p>');exit;}
+?><!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>کاربان | مدیریت پروژه</title><link rel="stylesheet" href="assets/index.css"></head><body><div id="root"></div><script>window.KARBAN_CSRF=<?=json_encode($_SESSION['csrf'],JSON_HEX_TAG|JSON_HEX_AMP|JSON_HEX_APOS|JSON_HEX_QUOT)?>;</script><script type="module" src="assets/app.js"></script></body></html>
